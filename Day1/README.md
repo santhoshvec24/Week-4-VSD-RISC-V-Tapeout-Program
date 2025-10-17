@@ -1,3 +1,8 @@
+# Day-1 Basics of NMOS Drain(id) Vs Drain-to-source Voltage(Vds)
+
+A comprehensive guide to understanding CMOS transistor behavior, circuit analysis, and practical SPICE simulation using Sky130 technology.
+
+---
 
 ### Installation
 

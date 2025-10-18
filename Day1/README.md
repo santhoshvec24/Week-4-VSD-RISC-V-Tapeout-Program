@@ -41,3 +41,6 @@ at desgin directory
 ```bash
 vim day1_nfet_idvds_L2_W5.spice
 ```
+<img width="895" height="727" alt="image" src="https://github.com/user-attachments/assets/7fb26dca-a288-4741-a8f9-bc9c423ec8d7" />
+
+

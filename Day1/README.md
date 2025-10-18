@@ -36,7 +36,7 @@ less output.csv
 ```
 <img width="698" height="615" alt="Screenshot from 2025-10-17 19-40-47" src="https://github.com/user-attachments/assets/60579b30-e904-4373-b722-e74ef3f76af5" />
 
-at desgin directory
+at design directory
 
 ```bash
 vim day1_nfet_idvds_L2_W5.spice

@@ -1,4 +1,4 @@
-# CMOS Switching Thershold and Dynamic Simulation
+# CMOS Switching Threshold and Dynamic Simulation
 
 ```bash
 vim day3_inv_vtc_Wp084_Wn036.spice

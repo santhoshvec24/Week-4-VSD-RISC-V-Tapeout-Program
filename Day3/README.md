@@ -73,6 +73,8 @@ vim day3_inv_tran_Wp084_Wn036.spice
 ```
 <img width="997" height="651" alt="image" src="https://github.com/user-attachments/assets/6930d02d-a161-402a-b95e-e22a8138141f" />
 
+The rise and fall propagation delay we set is 0.1 ns and the total pulse width is 4ns.
+
 ```bash
 ngspice day3_inv_tran_Wp084_Wn036.spice 
 plot out vs time in
@@ -160,3 +162,60 @@ and also we can able to set the value of `Vm` and we can able to find the ration
 From the table given below, we observe that,
 - When Wp/Lp ≈ 2 × Wn/Ln, the inverter achieves balanced rise and fall delays (≈ 80 ps each).
 - At this point, the switching threshold Vm ≈ 1.2 V.
+
+<img width="719" height="255" alt="image" src="https://github.com/user-attachments/assets/5b54f34b-a305-493d-85ac-a97a039dd71c" />
+
+---
+
+## Key Takeaways from PMOS & NMOS Sizing
+
+### Optimal Clock Inverter Design
+- **Condition:** `(Wp/Lp) = 2 × (Wn/Ln)`
+- **Why it works:** Produces nearly equal rise and fall delays.
+- **Use case:** Ideal for clock buffers and clock tree design, where symmetrical timing is important.
+
+---
+
+### Data Path Inverters
+- Other PMOS/NMOS ratios can be used as standard inverters or buffers.
+- Preferred for data path applications, not necessarily for clock networks.
+
+---
+
+### Switching Threshold Characteristics
+- For PMOS/NMOS ratios of:
+  - `(Wp/Lp) = 2 × (Wn/Ln)` and `(Wp/Lp) = 3 × (Wn/Ln)` → Switching threshold voltage is very low.
+  - `(Wp/Lp) = 4 × (Wn/Ln)` and `(Wp/Lp) = 5 × (Wn/Ln)` → Also results in a very low switching threshold.
+- **Implication:** The inverter switches earlier as input rises.
+
+---
+
+### Impact of PMOS Width
+- **Increasing Wp/Lp:** Significantly reduces rise delay.
+- **Reason:** A larger PMOS can supply more current to charge the output capacitance faster.
+- **Result:** Faster rise time of the output voltage.
+
+---
+
+### On-Resistance Relationship
+- R_on(PMOS) ≈ 2.5 × R_on(NMOS)
+- PMOS has higher on-resistance, so it is made wider to balance rise/fall characteristics.
+
+---
+
+### CMOS Inverter Applications in Chip Design
+
+#### Static Timing Analysis (STA)
+- Used as reference delay cells for modeling timing arcs.
+- Helps calculate rise/fall delays, setup, and hold times.
+
+#### Clock Tree Synthesis (CTS)
+- Serve as clock buffers for driving fanout.
+- Regenerate clock signals and introduce intentional skew to balance clock network delays across the chip.
+- By replacing clock invertor cell instead of noraml invertor cells.
+
+If the rise and fall delays of a clock buffer are closely matched, no duty cycle correction is required.
+
+<img width="1294" height="726" alt="image" src="https://github.com/user-attachments/assets/cf17c3ce-04af-478d-bb44-56590df65806" />
+
+However, when there is an imbalance—often caused by a mismatch between PMOS and NMOS on-resistances—duty cycle correction circuits are employed in the clock tree to restore and maintain a 50% duty cycle.

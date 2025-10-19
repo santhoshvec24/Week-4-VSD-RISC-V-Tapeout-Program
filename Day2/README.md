@@ -29,6 +29,7 @@ Even though both transistors have the **same W/L ratio**, their actual width and
 **Long Channel**
 - There is a quadratic dependencies on gate voltage.
 - In this, the drain current is in quadratic function of the gate voltage always.
+- In long-channel devices, carriers accelerate freely, giving higher Id.
 
 **Short Channel**
 - There is a linear dependence on gate voltage.
@@ -72,7 +73,22 @@ Now for the value of Vds is minimum, then the transistor is in resistive or line
 <img width="422" height="92" alt="image" src="https://github.com/user-attachments/assets/8da164f9-01df-4ebc-8e3c-dcaa78573d1f" />
 then the third term which has [1+λ Vds] will be approx. equal to one.
 
+Now in the short channel, when the Vsat is minimum
+<img width="932" height="131" alt="image" src="https://github.com/user-attachments/assets/de20c8bf-6b9d-4181-94fc-e1558529659a" />
 
+### Observation 2
+
+- from this, we can able to see that for short channel, the peak current is low compared with the long channel.
+- This is due to Voltage Saturation Effect causes the device to saturate early.
+- So that's why for the same W/L ratio, there is two different cases.
+
+Left Plot: W = 1.8μm, L = 1.2μm → Long-channel device
+    - Peak current = 410 μA
+    
+Right Plot: W = 0.375μm, L = 0.25μm → Short-channel device
+    - Peak current = 210 μA
+
+Although short-channel devices offer faster switching and smaller dimensions, their maximum drain current (Id) is lower compared to long-channel devices.
 
 
 
@@ -88,9 +104,10 @@ ngspice day2_nfet_idvds_L015_W039.spice
 plot -vdd#branch
 exit
 ```
+
 <img width="1348" height="905" alt="image" src="https://github.com/user-attachments/assets/6c8d3c02-b94f-4728-b02c-fa104ca96faf" />
 
-now you can able to see the graph for vds
+The plot of Ids vs Vds over constant Vgs:
 
 <img width="695" height="613" alt="image" src="https://github.com/user-attachments/assets/e54f1a8a-c39c-4e39-9be9-052a52486161" />
 
@@ -98,5 +115,10 @@ now you can able to see the graph for vds
 ngspice day2_nfet_idvgs_L015_W039.spice
 plot -vdd#branch
 ```
-now you can able to see the graph for vgs 
+The plot of Ids vs Vgs over constant Vds:
+
 <img width="695" height="613" alt="image" src="https://github.com/user-attachments/assets/02756cd6-ee2f-47a0-8fe0-cbb4a84a4328" />
+
+
+
+

@@ -98,7 +98,7 @@ vim day2_nfet_idvds_L015_W039.spice
 
 <img width="1129" height="704" alt="Screenshot from 2025-10-18 10-33-46" src="https://github.com/user-attachments/assets/e6974de7-0bc4-4d87-b7f5-a33da162f228" />
 
-
+plot the waveform in ngspice
 ```bash
 ngspice day2_nfet_idvds_L015_W039.spice
 plot -vdd#branch
@@ -110,6 +110,8 @@ exit
 The plot of Ids vs Vds over constant Vgs:
 
 <img width="695" height="613" alt="image" src="https://github.com/user-attachments/assets/e54f1a8a-c39c-4e39-9be9-052a52486161" />
+
+plot the waveform in ngspice
 
 ```bash
 ngspice day2_nfet_idvgs_L015_W039.spice

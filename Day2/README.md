@@ -157,5 +157,28 @@ PMOS: - Vgs and - Vt
      - When Vin = 0 → Vout = Vdd (PMOS ON, NMOS OFF).
      - Due to the charging effect made by the PMOS, the Vout = Vdd.
 
+---
 
+### Load Line Curves for NMOS and PMOS
 
+Convert the PMOS gate-source voltage (VgsP) into an equivalent Vin and plot to the load voltage transfer characteristic.
+By this, we can able to identifies the delays.
+Replace all internal node voltages with Vin, Vdd, Vss, and Vout.
+
+<img width="1395" height="707" alt="image" src="https://github.com/user-attachments/assets/e726712f-7cc2-4448-81df-ee2ecadb4fce" />
+
+Convert PMOS and NMOS drain-source voltages to Vout.
+
+- Obtain the Load Curve for PMOS Transistor
+  
+<img width="1382" height="729" alt="image" src="https://github.com/user-attachments/assets/881f60e0-cf3b-4d40-8c1c-938e67989123" />
+
+From the load curve, we can able to observe that the capacitor is completely discharged so that Vout = 0.
+
+- Obtain the Load Curve for NMOS Transistor
+
+<img width="970" height="734" alt="image" src="https://github.com/user-attachments/assets/c7b85db2-6c75-46c9-b1ce-2ae698b122d6" />
+
+### Merge PMOS – NMOS load curves and plot VTC
+
+<img width="1376" height="733" alt="image" src="https://github.com/user-attachments/assets/0344e3d9-87bd-4ed8-a998-dce112f1f2d5" />

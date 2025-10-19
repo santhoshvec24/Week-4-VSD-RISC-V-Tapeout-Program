@@ -1,5 +1,7 @@
 # CMOS Switching Threshold and Dynamic Simulation
 
+## Introduction
+
 The VTC is the plot of Vout (y-axis) vs Vin (x-axis) when Vin is slowly swept from 0 to VDD. It fully characterizes the static switching behavior of the inverter.
   - `Vout = fn(Vin)`
 
@@ -65,6 +67,7 @@ plot out vs in
 
 <img width="708" height="616" alt="image" src="https://github.com/user-attachments/assets/263b8064-f82c-404e-a965-e91e9822bdb0" />
 
+
 ```bash
 vim day3_inv_tran_Wp084_Wn036.spice 
 ```
@@ -75,5 +78,85 @@ ngspice day3_inv_tran_Wp084_Wn036.spice
 plot out vs time in
 exit
 ```
+
+### CMOS Inverter – Propagation Delay Calculation (Transient Analysis)
+
+The figure below illustrates the transient response of a CMOS inverter. From this waveform, we extract:
+
+- **Rise propagation delay (t<sub>PLH</sub>)**
+- **Fall propagation delay (t<sub>PHL</sub>)**
+
+### ** How Propagation Delay is Calculated**
+
+| Delay Type | Formula |
+|------------|---------|
+| **Rise Delay (t<sub>PLH</sub>)** | `t(Vout = 0.5 * VDD rising) - t(Vin = 0.5 * VDD falling)` |
+| **Fall Delay (t<sub>PHL</sub>)** | `t(Vout = 0.5 * VDD falling) - t(Vin = 0.5 * VDD rising)` |
+
+Where:
+- `VDD` = Supply voltage  
+- `0.5 * VDD` = 50% voltage level (standard for delay measurement)
+- `Vout` / `Vin` = Output and input waveforms
+
+### ** SPICE Measurement Commands (Example)**
+
+```spice
+CMOS Inverter Transient Analysis - Delay Calculation
+.measure tPLH TRIG v(in) VAL='0.5*VDD' FALL=1 TARG v(out) VAL='0.5*VDD' RISE=1
+.measure tPHL TRIG v(in) VAL='0.5*VDD' RISE=1 TARG v(out) VAL='0.5*VDD' FALL=1
+```
+
 <img width="701" height="611" alt="Screenshot from 2025-10-18 16-50-16" src="https://github.com/user-attachments/assets/dd96d174-b40c-467b-a0b0-a9800841acd6" />
 
+---
+
+### Switching Threshold, Vm
+
+By comparing both the graphs, we can able to study about the switching threshold 
+
+<img width="1210" height="650" alt="image" src="https://github.com/user-attachments/assets/2fa303fc-bcd4-4e72-a870-8abb7f131b72" />
+
+- If the Vin is high then the Vout is low and vice versa.
+- The switching threshold voltage (Vm) is the point on the VTC (Voltage Transfer Characteristic) curve where the input voltage equals the output voltage:  
+    - Vin = Vout​
+- This is a crucial parameter because it directly affects the noise margins and reliability of the inverter.
+
+At this voltage:
+
+- Both NMOS and PMOS transistors are ON.
+- They operate in the saturation region.
+- This leads to high leakage current.  This gives the direct path to the VDD to VSS.
+- The inverter exhibits high voltage gain, resulting in a steep transition in the VTC curve.
+
+**Left graph**:    
+     - Resulting `Vm ≈ 0.98 V`
+
+**Right graph**:  
+     - Resulting `Vm ≈ 1.2 V`
+
+**Regions of operation:**
+
+- Different regions of the curve correspond to the transistor operating regions:
+  - **PMOS Linear / NMOS OFF**
+  - **PMOS Linear / NMOS Saturation**
+  - **PMOS Saturation / NMOS Saturation** — This is where `Vm` is located.
+  - **PMOS Saturation / NMOS Linear**
+  - **PMOS OFF / NMOS Linear**
+
+<img width="1111" height="568" alt="image" src="https://github.com/user-attachments/assets/0c3ed069-c29c-494f-8c93-e33b4d49b366" />
+
+The value of drift current of both CMOS transistor can be given by the following equations shown in the below figure,
+
+<img width="978" height="559" alt="image" src="https://github.com/user-attachments/assets/88f35459-4f48-49d5-bf2f-31dac54ca5d3" />
+
+Now, equating Idsp + Idsn = 0, we get the following equation
+
+<img width="852" height="425" alt="image" src="https://github.com/user-attachments/assets/a8873d8e-fb56-452f-85dd-9ea92c1dd137" />
+
+and also we can able to set the value of `Vm` and we can able to find the ration `W/L`.
+
+<img width="963" height="224" alt="image" src="https://github.com/user-attachments/assets/a83f2e40-391d-4539-94e9-acf5d5fc8619" />
+
+From the table given below, we observe that,
+- When Wp/Lp ≈ 2 × Wn/Ln, the inverter achieves balanced rise and fall delays (≈ 80 ps each).
+- At this point, the switching threshold Vm ≈ 1.2 V.

@@ -1,13 +1,28 @@
 # CMOS Power Supply and Device Variation Robustness Evaluation
 
+Vary supply voltage ( Vdd ) and re-plot VTCs to observe how switching threshold shifts, Modify transistor sizing (e.g. W/L of PMOS or NMOS) to simulate device variation, and observe effects on VTC, noise margins, delays.
 
+---
 
+## Why Is This Important?
 
+- **Ensures Reliable Operation:** Digital circuits can experience variations in supply voltage (V<sub>DD</sub>) or transistor parameters (threshold voltage, mobility, etc.) due to process, temperature, or aging. Studying these variations ensures the circuit functions correctly under all conditions.
 
+- **Predicts Performance Impact:** Variations can change the **switching threshold (V<sub>M</sub>)**, noise margins, propagation delays, and power consumption. Understanding these effects helps designers anticipate how performance may shift.
 
+- **Improves Circuit Robustness:** Simulating worst-case scenarios allows designers to **guarantee correct logic levels** and prevent failures from marginal conditions.
 
+- **Supports Yield Optimization:** Differences in device characteristics across a wafer can cause some chips to fail specifications. Variation studies help **maximize yield** by designing circuits that tolerate these differences.
 
+- **Guides Design Margins:** Helps designers **define safe operating margins** for voltage, timing, and current to ensure reliable operation even under stress.
 
+- **Critical for High-Speed and Low-Power Designs:** Even small variations can significantly affect **timing and noise immunity**, making these studies essential in modern VLSI circuits.
+
+---
+
+## Simulation of `day5_inv_supplyvariation_Wp1_Wn036.spice` Netlist
+
+to see the modular description
 ```bash
 vim day5_inv_supplyvariation_Wp1_Wn036.spice
 ```

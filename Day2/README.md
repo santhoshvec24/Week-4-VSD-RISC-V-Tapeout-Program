@@ -62,7 +62,18 @@ After substitute the value of Vn to drain current, we got a complex equation
 
 Now let's dive into Voltage Saturation Effect,
 
-<img width="935" height="366" alt="image" src="https://github.com/user-attachments/assets/14b01ddb-8730-4d6c-b5dd-ddac92f02719" />
+<img width="986" height="496" alt="image" src="https://github.com/user-attachments/assets/9101f0bc-b9b2-4e6c-8dd9-4d3ff2290c1b" />
+
+Let's analyse that when the value of Vgt is minimum, the transistor will be in the saturation region.
+For Saturation region which is higher voltage for Vds operation, the value of drain current is
+<img width="455" height="195" alt="image" src="https://github.com/user-attachments/assets/38ce5e0c-ec4f-42b4-984a-b6cd20701744" />
+
+Now for the value of Vds is minimum, then the transistor is in resistive or linear region of operation.  
+<img width="422" height="92" alt="image" src="https://github.com/user-attachments/assets/8da164f9-01df-4ebc-8e3c-dcaa78573d1f" />
+then the third term which has [1+λ Vds] will be approx. equal to one.
+
+
+
 
 
 ```bash

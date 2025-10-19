@@ -76,7 +76,7 @@ When (W<sub>p</sub>/L<sub>p</sub>) = 5 × (W<sub>n</sub>/L<sub>n</sub>):
 
 ## Sky130 Noise margin labs
 
-To see the modular discription
+To see the modular description
 ```bash
 vim day4_inv_noisemargin_wp1_wn036.spice 
 ```

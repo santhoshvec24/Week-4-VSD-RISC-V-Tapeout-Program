@@ -90,7 +90,7 @@ Right Plot: W = 0.375μm, L = 0.25μm → Short-channel device
 
 Although short-channel devices offer faster switching and smaller dimensions, their maximum drain current (Id) is lower compared to long-channel devices.
 
-
+---
 
 ```bash
 vim day2_nfet_idvds_L015_W039.spice
@@ -121,6 +121,41 @@ The plot of Ids vs Vgs over constant Vds:
 
 <img width="695" height="613" alt="image" src="https://github.com/user-attachments/assets/02756cd6-ee2f-47a0-8fe0-cbb4a84a4328" />
 
+---
+
+## CMOS Voltage-Transfer Characteristics
+
+- It defines the delays of the cells
+- This helps us to derive the delay for a perticular cell.
+
+**MOSFET as a Switch:**
+NMOS: + Vgs and + Vt
+PMOS: - Vgs and - Vt
+ - OFF State:
+   - The MOSFET behaves as an open switch (infinite OFF resistance) when:
+   - |Vgs| < |Vt|
+
+ - ON State:
+   - The MOSFET behaves as a closed switch (finite ON resistance) when:
+   - |Vgs| > |Vt|
+
+<img width="903" height="521" alt="image" src="https://github.com/user-attachments/assets/36a25016-81da-4700-be61-7daf19a6eb74" />
+
+---
+
+### Introduction to standard MOS voltage current parameters
+ 
+<img width="1273" height="464" alt="image" src="https://github.com/user-attachments/assets/a3e356cd-b0e9-47ff-a885-689317693c4e" />
+
+- The left diagram shows a CMOS inverter at the transistor level: the PMOS transistor is connected to Vdd, the NMOS transistor is connected to Vss, and Vin is applied to both gates. The output Vout is taken from the common drain node, with CL representing the load capacitance.
+
+- The middle diagram illustrates the switch model when Vin = Vdd: the NMOS transistor is ON (acting as a resistor Rn), while the PMOS is OFF (open switch), resulting in Vout = 0.
+     - When Vin = Vdd → Vout = 0 (NMOS ON, PMOS OFF).
+     - This is due to when the capacitor fully charges and then a direct path exists from capacitor to the NMOS due to the discharging of capacitor(CL).
+
+- The right diagram shows the switch model when Vin = 0: the PMOS transistor is ON (acting as a resistor Rp), while the NMOS is OFF (open switch), producing Vout = Vdd.
+     - When Vin = 0 → Vout = Vdd (PMOS ON, NMOS OFF).
+     - Due to the charging effect made by the PMOS, the Vout = Vdd.
 
 
 

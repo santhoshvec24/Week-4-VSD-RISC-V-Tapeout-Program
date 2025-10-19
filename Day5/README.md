@@ -20,6 +20,16 @@ Vary supply voltage ( Vdd ) and re-plot VTCs to observe how switching threshold 
 
 ---
 
+### Advantages of using 0.5V supply:
+
+Using lower Vdd (0.5V) provides benefits like ~50% gain improvement and ~90% reduction in energy consumption, demonstrating the efficiency of power supply scaling in CMOS inverters.
+
+### Disadvantage of using 0.5V supply:
+
+While lowering Vdd improves gain and energy efficiency, it introduces performance impact — circuits may switch slower due to reduced drive strength.
+
+---
+
 ## Simulation of `day5_inv_supplyvariation_Wp1_Wn036.spice` Netlist
 
 to see the modular description

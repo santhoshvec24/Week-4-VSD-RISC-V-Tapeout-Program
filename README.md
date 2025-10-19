@@ -53,7 +53,7 @@ We also extend our gratitude to the **SKY130 PDK community**, the contributors o
 
 ---
 
-Previous week, Week 3 (Simulation, Synthesis & Optimisation) : [Week 2 Repository](https://github.com/santhoshvec24/Week-3-VSD-RISC-V-Tapeout-Program[](url))
+Previous week, Week 3 (Simulation, Synthesis & Optimisation) : [Week 3 Repository](https://github.com/santhoshvec24/Week-3-VSD-RISC-V-Tapeout-Program/blob/main/README.md)
 
 ---
 
